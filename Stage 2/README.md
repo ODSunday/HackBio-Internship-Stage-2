@@ -60,9 +60,9 @@ nano quality_control.sh
 #!/bin/bash
 
 # Set the variables
-DATA_DIR="raw_data"                        # Directory containing the raw data.
-OUTPUT_DIR="qc_reports"                    # Directory for the QC reports.
-MULTIQC_DIR="multiqc_reports"              # Directory for the aggregated QC reports.
+DATA_DIR="./raw_data"                        # Directory containing the raw data.
+OUTPUT_DIR="./qc_reports"                    # Directory for the QC reports.
+MULTIQC_DIR="./multiqc_reports"              # Directory for the aggregated QC reports.
 
 # Create output directories
 mkdir -p "$OUTPUT_DIR"
@@ -98,8 +98,8 @@ nano trimming.sh
 #!/bin/bash
 
 # Set the variables
-DATA_DIR="raw_data"                        # Directory containing the raw data.
-TRIMMED_OUTPUT_DIR="trimmed_reads"         # Directory for the trimmed reads.
+DATA_DIR="./raw_data"                        # Directory containing the raw data.
+TRIMMED_OUTPUT_DIR="./trimmed_reads"         # Directory for the trimmed reads.
 
 # Create the output directory
 mkdir -p "$TRIMMED_OUTPUT_DIR"
@@ -132,9 +132,9 @@ nano trimmed_qc.sh
 #!/bin/bash
 
 # Set the variables
-TRIMMED_OUTPUT_DIR="trimmed_reads"         # Directory containing the trimmed reads.
-TRIMMED_QC_DIR="qc_trim"                   # Directory for trimmed reads QC reports.
-TRIMMED_MULTIQC_DIR="multiqc_trim"         # Directory for the aggregated QC reports.
+TRIMMED_OUTPUT_DIR="./trimmed_reads"         # Directory containing the trimmed reads.
+TRIMMED_QC_DIR="./qc_trim"                   # Directory for trimmed reads QC reports.
+TRIMMED_MULTIQC_DIR="./multiqc_trim"         # Directory for the aggregated QC reports.
 
 # Create output directories
 mkdir -p "$TRIMMED_QC_DIR"
@@ -187,18 +187,58 @@ nano mapping.sh
 ```bash
 #!/bin/bash
 
-# create directories for output
-mkdir -p mapped
+# Set variables
+REFERENCE_GENOME="./genome/genomeIndex"                      # Reference genome directory.
+OUTPUT_DIR="./mapped_reads"                                  # Directory for the STAR output (mapped reads).
+READS_DIR="./trimmed_reads"                                  # Directory containing trimmed reads.
 
-for infile in trimmed_reads/*.fastq ; do
-    outfile=$(basename "$infile".fastq)
-    STAR --genomeDir genome/genomeIndex --readFilesIn $infile --outFileNamePrefix mapped/$outfile --outSAMtype BAM SortedByCoordinate --outSAMattributes All
+# Create output directory
+mkdir -p $OUTPUT_DIR
+
+# Create sample array
+SAMPLES=(
+    "SRR20959676"
+    "SRR20959677"
+    "SRR20959678"
+    "SRR20959679"
+    "SRR20959680"
+    "SRR20959681"
+    "SRR20959682"
+)
+
+# Loop through each sample and run STAR
+for sample in "${SAMPLES[@]}"; do
+    echo "Processing sample: $sample"
+
+    # Set input files
+    R1="${READS_DIR}/${sample}_1.trimmed.fastq" 
+    R2="${READS_DIR}/${sample}_2.trimmed.fastq"
+
+    # Set output prefix
+    OUTPUT_PREFIX="${OUTPUT_DIR}/${sample}_"
+
+    echo "Reference Genome: $REFERENCE_GENOME"
+    echo "Read 1: $R1"
+    echo "Read 2: $R2"
+    echo "Output Prefix: $OUTPUT_PREFIX"
+
+    # Run STAR
+    STAR --genomeDir $REFERENCE_GENOME --readFilesIn $R1 $R2 --outFileNamePrefix $OUTPUT_PREFIX --outSAMtype BAM SortedByCoordinate --outSAMattributes All --outFilterMultimapNmax 1 --outFilterMismatchNmax 2
+         
+    echo "Finished processing sample: $sample"
 done
+
+echo "All samples processed."
+
+# --outSAMtype BAM SortedByCoordinate: Sorts output BAM files by coordinate.
+# --outSAMattributes All: Includes all SAM attributes in the output BAM files.
+# --outFilterMultimapNmax 1: Keeps uniquely mapped reads only.
+# --outFilterMismatchNmax 2: Allows a maximum of 2 mismatches.
 ```
 ```bash
 # Assess the bam output
 samtools view mapped/SRR20959676_1.trimmed.fastq.fqAligned.sortedByCoord.out.bam | head
-samtools view -c mapped/SRR20959676_1.trimmed.fastq.fqAligned.sortedByCoord.out.bam | head          # Counts total reads (10,561,454)
+samtools view -c mapped/SRR20959676_1.trimmed.fastq.fqAligned.sortedByCoord.out.bam | head          
 samtools flagstat mapped/SRR20959676_1.trimmed.fastq.fqAligned.sortedByCoord.out.bam | head
 
 # Get summary statistics for all samples at a go.
