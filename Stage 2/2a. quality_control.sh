@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set the variables
-DATA_DIR="raw_data"                        # Directory containing the raw data.
-OUTPUT_DIR="qc_reports"                    # Directory for the QC reports.
-MULTIQC_DIR="multiqc_reports"              # Directory for the aggregated QC reports.
+DATA_DIR="./raw_data"                        # Directory containing the raw data.
+OUTPUT_DIR="./qc_reports"                    # Directory for the QC reports.
+MULTIQC_DIR="./multiqc_reports"              # Directory for the aggregated QC reports.
 
 # Create output directories
 mkdir -p "$OUTPUT_DIR"
@@ -23,5 +23,6 @@ echo "QC successfully done!"
 echo "Aggregating QC reports..."
 
 multiqc "$OUTPUT_DIR" -o "$MULTIQC_DIR"
+
 
 echo "Reports saved to $MULTIQC_DIR"
