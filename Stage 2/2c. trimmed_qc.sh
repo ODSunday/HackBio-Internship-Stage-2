@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set the variables
-TRIMMED_OUTPUT_DIR="trimmed_reads"         # Directory containing the trimmed reads.
-TRIMMED_QC_DIR="qc_trim"                   # Directory for trimmed reads QC reports.
-TRIMMED_MULTIQC_DIR="multiqc_trim"         # Directory for the aggregated QC reports.
+TRIMMED_OUTPUT_DIR="./trimmed_reads"         # Directory containing the trimmed reads.
+TRIMMED_QC_DIR="./qc_trim"                   # Directory for trimmed reads QC reports.
+TRIMMED_MULTIQC_DIR="./multiqc_trim"         # Directory for the aggregated QC reports.
 
 # Create output directories
 mkdir -p "$TRIMMED_QC_DIR"
@@ -20,5 +20,6 @@ echo "Quality check successfully done!"
 echo "Aggregating QC reports..."
 
 multiqc "$TRIMMED_QC_DIR" -o "$TRIMMED_MULTIQC_DIR"
+
 
 echo "Reports saved to $TRIMMED_MULTIQC_DIR"
