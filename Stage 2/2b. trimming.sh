@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set the variables
-DATA_DIR="raw_data"                        # Directory containing the raw data.
-TRIMMED_OUTPUT_DIR="trimmed_reads"         # Directory for the trimmed reads.
+DATA_DIR="./raw_data"                        # Directory containing the raw data.
+TRIMMED_OUTPUT_DIR="./trimmed_reads"         # Directory for the trimmed reads.
 
 # Create the output directory
 mkdir -p "$TRIMMED_OUTPUT_DIR"
@@ -19,5 +19,6 @@ for FILE in "$DATA_DIR"/*_1.fastq.gz; do
     --qualified_quality_phred 20 --length_required 30 \
     --detect_adapter_for_pe 
 done
+
 
 echo "Results saved into $TRIMMED_OUTPUT_DIR." 
