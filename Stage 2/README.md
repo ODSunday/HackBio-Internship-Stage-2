@@ -362,7 +362,7 @@ ggsave("volcano_plot.png") # Save volcano plot as a PNG file
 heatmap_data <- raw_counts[rownames(sig_genes), ]
 pheatmap(heatmap_data, scale = "row", clustering_distance_rows = "correlation", clustering_distance_cols = "correlation",
          main = "Heatmap of Significant DEGs", show_rownames = TRUE)
-ggsave("heatmap.png")
+ggsave("heatmap_plot.png")
 
 # Identify the upregulated/downregulated genes
 upregulated <- subset(res, padj < 0.05 & log2FoldChange > 2)
@@ -373,7 +373,7 @@ rownames(upregulated)
 rownames(downregulated)
 
 # Export the files
-write.csv(upregulated, 'upregulated.tsv')
+write.csv(upregulated, 'upregulated.csv')
 write.csv(downregulated, 'downregulated.csv')
 write.csv(raw_counts, 'raw_counts.csv')
 write.csv(raw_counts_filtered, 'raw_counts_filtered.csv')
