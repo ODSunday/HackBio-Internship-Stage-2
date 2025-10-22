@@ -251,6 +251,7 @@ done
 ```
 
 ### 4. DIFFERENTIAL EXPRESSION ANALYSIS IN R STUDIO
+The count table generated with `featureCounts` and the metadata table containing samples accession number and PJI states were used for the differential expression analysis (DEA). The step-by-step approach for the DEA is explicitly highlighted in the following section:
 
 ```r
 # Set working directory
@@ -379,3 +380,32 @@ write.csv(raw_counts, 'raw_counts.csv')
 write.csv(raw_counts_filtered, 'raw_counts_filtered.csv')
 ```
 
+### 5. FUNCTIONAL ENRICHMENT ANALYSIS AND PATHWAY MAPPING
+The gene names of the significantly expressed genes were not available in the annotated file and public databases, thereby making functional enrichment analysis and pathway mapping practically impossibly.
+
+### 6. RESULTS
+In this project, RNA sequencing was used to capture the gene expression profiles of _S. aureus_ isolates in the different clinical acute and chronic phases of PJI.
+#### 6.1. Principal component analysis
+
+<img width="700" height="800" alt="pca_plot" src="https://github.com/user-attachments/assets/bc621a31-22eb-4cfe-a588-babaaaeea051" />
+
+Figure 1: Plot of the principal component analysis showing the distrubution of the acute vs chronic phases of PJI
+
+#### 6.2. Upregulated and downregulated differentially expresses genes (DEGs)
+upregulated gene ENSB:4g8J9rDq47fImE2
+downregulated gene ENSB:wHC-QqOG4_4gMpW
+
+<img width="900" height="950" alt="volcano_plot" src="https://github.com/user-attachments/assets/372c1fa9-c9aa-4347-9ebe-b043d45e6c55" />
+
+Figure 2: Volcano plot showing the significant DEGs
+
+### 6.3.
+
+<img width="573" height="668" alt="heatmap_plot" src="https://github.com/user-attachments/assets/5d5f535c-d697-46a3-9eaa-71ebaf7a96eb" />
+
+Figure 3: Heatmap of significant DEGs
+
+
+
+
+   
