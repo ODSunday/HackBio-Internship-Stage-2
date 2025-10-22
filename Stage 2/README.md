@@ -1,8 +1,8 @@
 # PROJECT 2: TRANSCRIPTOMIC PROFILING OF _STAPHYLOCOCCUS AUREUS_ DURING ACUTE VS CHRONIC PHASES OF PERIPROSTHETIC JOINT INFECTION (PJI)
 ## INTRODUCTION
-Periprosthetic joint infections (PJIs) are among the most devastating complications of orthopedic implants which increase morbidity, prolong hospital stays, and often require costly revision surgeries. Staphylococcus aureus, particularly methicillin-resistant strains (MRSA), is a leading cause of PJIs. 
+Periprosthetic joint infections (PJIs) are among the most devastating complications of orthopaedic implants, which increase morbidity, prolong hospital stays, and often require costly revision surgeries. Staphylococcus aureus, particularly methicillin-resistant strains (MRSA), is a leading cause of PJIs. 
 
-A critical feature of _S. aureus_ is its ability to switch phenotypes between acute and chronic infection phases. For example, in **acute phase**, bacteria adopt an aggressive, planktonic growth mode, expressing virulence factors such as toxins, adhesins, and immune evasion genes, while, in **chronic phase**, bacteria adapt to a biofilm-like state, downregulating overt virulence and upregulating persistence pathways (stress response, metabolic rewiring, antibiotic tolerance). This adaptive flexibility makes chronic PJIs notoriously difficult to eradicate. Antibiotic regimens often fail, and host immune responses are blunted by biofilm shielding.
+A critical feature of _S. aureus_ is its ability to switch phenotypes between acute and chronic infection phases. For example, in the **acute phase**, bacteria adopt an aggressive, planktonic growth mode, expressing virulence factors such as toxins, adhesins, and immune evasion genes, while in the **chronic phase**, bacteria adapt to a biofilm-like state, downregulating overt virulence and upregulating persistence pathways (stress response, metabolic rewiring, antibiotic tolerance). This adaptive flexibility makes chronic PJIs notoriously difficult to eradicate. Antibiotic regimens often fail, and host immune responses are blunted by biofilm shielding.
 
 RNA sequencing uncovers the global transcriptional programmes underpinning the acute-to-chronic transition. Therefore, this project aims at capturing the gene expression profiles of _S. aureus_ isolates in the different clinical phases of PJI (acute and chronic) to: 
 - Identify virulence, stress response, and metabolic genes that are significantly up- or downregulated;
@@ -11,7 +11,7 @@ RNA sequencing uncovers the global transcriptional programmes underpinning the a
 
 ## METHODS
 ### 1. Data acquisition
-The data for this project was obtained from SRA, using the SRA-Explorer:`https://sra-explorer.info/`. The following 7 samples in `PRJNA867318` were successfully downloaded into the `raw_data` directory. Each sample contains paired-end reads. 
+The data for this project were obtained from SRA, using the SRA-Explorer: `https://sra-explorer.info/`. The following 7 samples in `PRJNA867318` were successfully downloaded into the `raw_data` directory. Each sample contains paired-end reads. 
 
 ###### _Table 1: Samples and their PJI states_
 |S/N|	Accession Number|	State|
@@ -392,38 +392,38 @@ write.csv(raw_counts_filtered, 'raw_counts_filtered.csv')
 ```
 
 ### 5. Functional enrichment analysis and pathway mapping
-The gene names of the significantly expressed genes were not available in the annotated file and public databases, thereby making functional enrichment analysis and pathway mapping practically impossibly.
+The gene names of the significantly expressed genes were not available in the annotated file and public databases, thereby making functional enrichment analysis and pathway mapping practically impossible.
 
 ## RESULTS
 In this project, RNA sequencing was used to capture the gene expression profiles of _S. aureus_ isolates in the different clinical acute and chronic phases of PJI, as shown by the various plots explained in this section of the report.
 
 ### 1. Principal component analysis confirms distinct expression profiles in acute vs chronic PJI states
-Principal Component Analysis (PCA) was performed to visualize the overall transcriptional differences between _S. aureus_ isolates from acute and chronic periprosthetic joint infections (PJIs). The first two principal components (PC1 and PC2) explain 43.93% and 19.15% of the total variance, respectively (Figure 1). The PCA plot shows a clear separation between acute and chronic PJI samples, indicating distinct global gene expression patterns associated with each infection state. Acute PJI isolates clustered more closely together (except for an outlier), suggesting higher transcriptional similarity, whereas chronic PJI isolates were more dispersed, reflecting greater heterogeneity, possibly linked to adaptive responses during long-term infection or biofilm persistence. These findings demonstrate that _S. aureus_ undergoes substantial transcriptional reprogramming in the transition from acute to chronic infection.
+Principal Component Analysis (PCA) was performed to visualise the overall transcriptional differences between _S. aureus_ isolates from acute and chronic periprosthetic joint infections (PJIs). The first two principal components (PC1 and PC2) explain 43.93% and 19.15% of the total variance, respectively (Figure 1). The PCA plot shows a clear separation between acute and chronic PJI samples, indicating distinct global gene expression patterns associated with each infection state. Acute PJI isolates clustered more closely together (except for an outlier), suggesting higher transcriptional similarity, whereas chronic PJI isolates were more dispersed, reflecting greater heterogeneity, possibly linked to adaptive responses during long-term infection or biofilm persistence. These findings demonstrate that _S. aureus_ undergoes substantial transcriptional reprogramming in the transition from acute to chronic infection.
 
 <img width="700" height="800" alt="pca_plot" src="https://github.com/user-attachments/assets/bc621a31-22eb-4cfe-a588-babaaaeea051" />
 
 ###### _Figure 1: Plot of the principal component analysis showing relatively clear separation of expression profiles in acute vs chronic phases of PJI_
 
-### 2. Upregulated vs downregulated differentially expresses genes (DEGs)
+### 2. Upregulated vs downregulated differentially expressed genes (DEGs)
 Figure 2 (volcano plot) shows the results of differential gene expression (DEG) analysis comparing the _S. aureus_ gene expression in acute vs chronic PJIs.
-Overall, the result shows relatively modest transcriptional changes, with the most of the 2,942 genes showing no significant differential expression. Interestingly, only 2 genes meet both statistical and biological significance thresholds (significant DEGs, red dots), which are `ENSB:4g8J9rDq47fImE2` (upregulated gene: padj < 0.05 & log2FoldChange > 2) and `ENSB:wHC-QqOG4_4gMpW` (downregulated gene: padj < 0.05 & log2FoldChange < -2), respectively.
+Overall, the result shows relatively modest transcriptional changes, with most of the 2,942 genes showing no significant differential expression. Interestingly, only 2 genes meet both statistical and biological significance thresholds (significant DEGs, red dots), which are `ENSB:4g8J9rDq47fImE2` (upregulated gene: padj < 0.05 & log2FoldChange > 2) and `ENSB:wHC-QqOG4_4gMpW` (downregulated gene: padj < 0.05 & log2FoldChange < -2), respectively.
 This limited number of DEGs suggests that _S. aureus_ maintains a relatively stable transcriptional profile between acute and chronic PJI states, with only minimal gene expression changes distinguishing the two PJI states. 
 
 <img width="900" height="950" alt="volcano_plot" src="https://github.com/user-attachments/assets/372c1fa9-c9aa-4347-9ebe-b043d45e6c55" />
 
 ###### _Figure 2: Volcano plot showing the significant DEGs_
 
-### 3. The significant DEGs shows different expression patterns across individual samples
-Figure 3 is the heatmap showing the expression patterns of the two significant DEGs across individual samples. The top dendrogram in the heatmap shows hierarchical clustering, indicating that samples cluster into two distinct groups based on the expression of the two genes. The two sample groups clearly relate to acute vs chronic PJI samples (**Table 1**), suggesting that the two genes are reliable molecular markers for distinguishing acute from chronic PJI.
+### 3. The significant DEGs show different expression patterns across individual samples
+Figure 3 is the heatmap showing the expression patterns of the two significant DEGs across individual samples. The top dendrogram in the heatmap shows hierarchical clustering, indicating that samples cluster into two distinct groups based on the expression of the two genes. The two sample groups clearly relate to acute versus chronic PJI samples (**Table 1**), suggesting that the two genes are reliable molecular markers for distinguishing between acute and chronic PJI.
 
-Furthermore, the two significant DEGs show clearly different expression patterns across samples. The upregulated gene `ENSB:4g8J9rDq47flmE2` consistently shows high expression in sample SRR20959676, a sample from the chronic state of PJI. Conversely, the downregulated gene ENSB:wHC-QqOG4_4gMpW was clearly expressed in samples SRR20959681 and SRR20959682 which were samples from the acute state of PJI. The opposing expression patterns may suggest coordinated regulation or functional antagonism between the two genes.
+Furthermore, the two significant DEGs show clearly different expression patterns across samples. The upregulated gene `ENSB:4g8J9rDq47flmE2` consistently shows high expression in sample SRR20959676, a sample from the chronic state of PJI. Conversely, the downregulated gene ENSB:wHC-QqOG4_4gMpW was clearly expressed in samples SRR20959681 and SRR20959682, which were samples from the acute state of PJI. The opposing expression patterns may suggest coordinated regulation or functional antagonism between the two genes.
 
 <img width="573" height="668" alt="heatmap_plot" src="https://github.com/user-attachments/assets/5d5f535c-d697-46a3-9eaa-71ebaf7a96eb" />
 
 ###### _Figure 3: Heatmap of significant DEGs_
 
 ## DISCUSSION
-The findings from this project show that _S. aureus_ undergoes transcriptional reprogramming in the transition from acute to chronic infection. Even though there limited gene expression changes distinguishing the two PJI states, the two significantly expressed genes may suggest metabolic adaptation to the chronic infection environment, virulence factor modulation between infection states, biofilm-associated gene expression changes, or stress response adaptations to prolonged host immune pressure. This could have been substantiated by detailed functional enrichment analysis and pathway mapping, but not the case here due to lack of adequate information about the two significant DEGs.
+The findings from this project show that _S. aureus_ undergoes transcriptional reprogramming in the transition from acute to chronic infection. Although there are limited gene expression changes distinguishing the two PJI states, the two significantly expressed genes may suggest metabolic adaptation to the chronic infection environment, modulation of virulence factors between infection states, biofilm-associated gene expression changes, or stress response adaptations to prolonged host immune pressure. This could have been substantiated by detailed functional enrichment analysis and pathway mapping, but not the case here due to a lack of adequate information about the two significant DEGs.
 
 ## CONCLUSION
 _S. aureus_ undergoes specific transcriptional reprogramming during the transition from acute to chronic PJI, with two genes potentially playing key roles in adaptation to each infection state. Further information is required to ascertain the specific functions and pathways associated with each of the genes.
