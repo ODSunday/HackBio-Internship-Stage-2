@@ -251,7 +251,7 @@ for file in mapped/*.bam; do
 done
 ```
 
-### 4. DIFFERENTIAL EXPRESSION ANALYSIS IN R STUDIO
+### 4. Differential expression analysis in `R Studio`
 The count table generated with `featureCounts` and the metadata table containing samples accession number and PJI states were used for the differential expression analysis (DEA). The step-by-step approach for the DEA is explicitly highlighted in the following section:
 
 ```r
@@ -391,20 +391,20 @@ write.csv(raw_counts, 'raw_counts.csv')
 write.csv(raw_counts_filtered, 'raw_counts_filtered.csv')
 ```
 
-### 5. FUNCTIONAL ENRICHMENT ANALYSIS AND PATHWAY MAPPING
+### 5. Functional enrichment analysis and pathway mapping
 The gene names of the significantly expressed genes were not available in the annotated file and public databases, thereby making functional enrichment analysis and pathway mapping practically impossibly.
 
-### 6. RESULTS
+## RESULTS
 In this project, RNA sequencing was used to capture the gene expression profiles of _S. aureus_ isolates in the different clinical acute and chronic phases of PJI, as shown by the various plots explained in this section of the report.
 
-#### 6.1. Principal component analysis confirms distinct expression profiles in acute vs chronic PJI states
+### 1. Principal component analysis confirms distinct expression profiles in acute vs chronic PJI states
 Principal Component Analysis (PCA) was performed to visualize the overall transcriptional differences between _S. aureus_ isolates from acute and chronic periprosthetic joint infections (PJIs). The first two principal components (PC1 and PC2) explain 43.93% and 19.15% of the total variance, respectively (Figure 1). The PCA plot shows a clear separation between acute and chronic PJI samples, indicating distinct global gene expression patterns associated with each infection state. Acute PJI isolates clustered more closely together (except for an outlier), suggesting higher transcriptional similarity, whereas chronic PJI isolates were more dispersed, reflecting greater heterogeneity, possibly linked to adaptive responses during long-term infection or biofilm persistence. These findings demonstrate that _S. aureus_ undergoes substantial transcriptional reprogramming in the transition from acute to chronic infection.
 
 <img width="700" height="800" alt="pca_plot" src="https://github.com/user-attachments/assets/bc621a31-22eb-4cfe-a588-babaaaeea051" />
 
 ###### _Figure 1: Plot of the principal component analysis showing relatively clear separation of expression profiles in acute vs chronic phases of PJI_
 
-#### 6.2. Upregulated vs downregulated differentially expresses genes (DEGs)
+### 2. Upregulated vs downregulated differentially expresses genes (DEGs)
 Figure 2 (volcano plot) shows the results of differential gene expression (DEG) analysis comparing the _S. aureus_ gene expression in acute vs chronic PJIs.
 Overall, the result shows relatively modest transcriptional changes, with the most of the 2,942 genes showing no significant differential expression. Interestingly, only 2 genes meet both statistical and biological significance thresholds (significant DEGs, red dots), which are `ENSB:4g8J9rDq47fImE2` (upregulated gene: padj < 0.05 & log2FoldChange > 2) and `ENSB:wHC-QqOG4_4gMpW` (downregulated gene: padj < 0.05 & log2FoldChange < -2), respectively.
 This limited number of DEGs suggests that _S. aureus_ maintains a relatively stable transcriptional profile between acute and chronic PJI states, with only minimal gene expression changes distinguishing the two PJI states. 
@@ -413,7 +413,7 @@ This limited number of DEGs suggests that _S. aureus_ maintains a relatively sta
 
 ###### _Figure 2: Volcano plot showing the significant DEGs_
 
-### 6.3. The significant DEGs shows different expression patterns across individual samples
+### 3. The significant DEGs shows different expression patterns across individual samples
 Figure 3 is the heatmap showing the expression patterns of the two significant DEGs across individual samples. The top dendrogram in the heatmap shows hierarchical clustering, indicating that samples cluster into two distinct groups based on the expression of the two genes. The two sample groups clearly relate to acute vs chronic PJI samples (**Table 1**), suggesting that the two genes are reliable molecular markers for distinguishing acute from chronic PJI.
 
 Furthermore, the two significant DEGs show clearly different expression patterns across samples. The upregulated gene `ENSB:4g8J9rDq47flmE2` consistently shows high expression in sample SRR20959676, a sample from the chronic state of PJI. Conversely, the downregulated gene ENSB:wHC-QqOG4_4gMpW was clearly expressed in samples SRR20959681 and SRR20959682 which were samples from the acute state of PJI. The opposing expression patterns may suggest coordinated regulation or functional antagonism between the two genes.
@@ -422,9 +422,9 @@ Furthermore, the two significant DEGs show clearly different expression patterns
 
 ###### _Figure 3: Heatmap of significant DEGs_
 
-### DISCUSSION
+## DISCUSSION
 The findings from this project show that _S. aureus_ undergoes transcriptional reprogramming in the transition from acute to chronic infection. Even though there limited gene expression changes distinguishing the two PJI states, the two significantly expressed genes may suggest metabolic adaptation to the chronic infection environment, virulence factor modulation between infection states, biofilm-associated gene expression changes, or stress response adaptations to prolonged host immune pressure. This could have been substantiated by detailed functional enrichment analysis and pathway mapping, but not the case here due to lack of adequate information about the two significant DEGs.
 
-### CONCLUSION
+## CONCLUSION
 _S. aureus_ undergoes specific transcriptional reprogramming during the transition from acute to chronic PJI, with two genes potentially playing key roles in adaptation to each infection state. Further information is required to ascertain the specific functions and pathways associated with each of the genes.
 
