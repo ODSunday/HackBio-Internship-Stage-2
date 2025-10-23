@@ -97,7 +97,7 @@ for FILE in "$DATA_DIR"/*.fastq.gz; do
     base=$(basename "$FILE" .fastq.gz)
     fastp -i "$DATA_DIR/${base}.fastq.gz" \
     -o "$TRIMMED_OUTPUT_DIR/${base}_trimmed.fastq" \
-    --html "$TRIMMED_OUTPUT_DIR/${base}_fastp_report.html" --json "$TRIMMED_OUTPUT_DIR/${base}_fastp_report.json"
+    --html "$TRIMMED_OUTPUT_DIR/${base}_fastp_report.html" --json "$TRIMMED_OUTPUT_DIR/${base}_fastp_report.json" \
     --overrepresented_threshold 0.01 \
     --cut_mean_quality 20 --cut_front --cut_tail \
     --qualified_quality_phred 20 --length_required 30 \
