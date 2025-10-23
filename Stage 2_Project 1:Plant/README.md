@@ -314,6 +314,11 @@ fi
 ```
 
 ```bash
+# Run the script
+bash featurecounts.sh
+```
+
+```bash
 # Assess the featureCounts output 
 cat counts/counts.txt | head -n 10      # First 10 lines.
 
