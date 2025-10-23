@@ -12,7 +12,7 @@ mkdir -p "$TRIMMED_MULTIQC_DIR"
 
 echo "Performing quality check on the trimmed data..."
 
-fastqc "$TRIMMED_OUTPUT_DIR"/*.trimmed.fastq.gz -o "$TRIMMED_QC_DIR" --quiet
+fastqc "$TRIMMED_OUTPUT_DIR"/*.trimmed.fastq -o "$TRIMMED_QC_DIR" --quiet
     
 echo "Quality check successfully done!"
 
@@ -20,5 +20,6 @@ echo "Quality check successfully done!"
 echo "Aggregating QC reports..."
 
 multiqc "$TRIMMED_QC_DIR" -o "$TRIMMED_MULTIQC_DIR" --quiet
+
 
 echo "Reports saved to $TRIMMED_MULTIQC_DIR"
