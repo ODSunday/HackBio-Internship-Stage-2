@@ -8,10 +8,18 @@ Environmental stresses affect plant tissues in various degrees, and plants' resp
 ### 1. Data acquisition
 NCBI SRA database under project ID PRJNA668247
 
-Replicate	Control	UV-C Treated
-1	SRR12808527	SRR12808497
-2	SRR12808528	SRR12808498
-3	SRR12808529	SRR12808499
+|Replicate|	Control|	UV-C Treated|
+|:-------:|:------:|:--------------:|
+|1|	SRR12808527	|SRR12808497|
+|2|	SRR12808528	|SRR12808498|
+|3|	SRR12808529	|SRR12808499|
+
+###### Table 1
+|Replicate|	Control|	UV-C Treated|
+|:-------:|:------:|:--------------:|
+|1|	SRR12808527_c1	|SRR12808497_t1|
+|2|	SRR12808528_c2	|SRR12808498_t2|
+|3|	SRR12808529_c3	|SRR12808499_t3|
 
 ```bash
 # Script for downloading
@@ -237,8 +245,8 @@ bash mapping.sh
 ```bash
 # Assess the bam output
 samtools view mapped_reads/SRR12808497_t1_Aligned.sortedByCoord.out.bam | head -n 10       # Views the first 10 lines.
-samtools view -c mapped_reads/SRR12808497_t1_Aligned.sortedByCoord.out.bam | head          # Counts total reads 
-samtools flagstat mapped_reads/SRR12808497_t1_Aligned.sortedByCoord.out.bam | head         # Gets summary statistics for sample SRR20959676.
+samtools view -c mapped_reads/SRR12808497_t1_Aligned.sortedByCoord.out.bam | head          # Counts total reads (26,900,918)
+samtools flagstat mapped_reads/SRR12808497_t1_Aligned.sortedByCoord.out.bam | head         # Gets summary statistics for sample SRR12808497_t1.
 
 # Get summary statistics for all samples at a go.
 
@@ -249,7 +257,49 @@ for file in mapped_reads/*.bam; do
 done
 ```
 
-### 4. Counting the abundance of the transcriptome using `featureCounts`
+### 4. Visualizing the Transcriptome Map
+
+```bash
+# Create a directory for IGV viewing
+mkdir -p igv
+
+# Copy the mapped reads (output BAM files) into the igv directory for IGV viewing
+cp mapped_reads/*.bam igv/
+```
+
+#### 4a. Indexing
+```bash
+# Script for indexing
+nano igv_indexing.sh
+```
+
+```bash
+#!/bin/bash
+
+INDEX_DIR="./igv"
+
+echo "Indexing in progress"
+echo "--------------------"
+
+for FILE in "$INDEX_DIR"/*.bam; do
+    samtools index "$FILE"
+done
+
+echo "Indexing completed successfully. Files saved to $INDEX_DIR"
+```
+
+```bash
+# Run script for indexing
+bash igv_indexing.sh
+
+# Download the igv directory to the local computer for visualizing in IGV 
+```
+
+#### 4b. Visualize in IGV
+
+`https://igv.org/app/`
+
+### 5. Counting the abundance of the transcriptome using `featureCounts`
 ```bash
 # Download genome annotation
 wget -nc -P genome https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-62/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.62.gff3.gz
@@ -258,7 +308,7 @@ wget -nc -P genome https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-62/gf
 gunzip ./genome/Arabidopsis_thaliana.TAIR10.62.gff3.gz
 
 # Rename the gff3 file to a_thaliana.gff3 to be used for featureCounts
-mv genome/Arabidopsis_thaliana.TAIR10.62.gff3 a_thaliana.gff3
+mv ./genome/Arabidopsis_thaliana.TAIR10.62.gff3 ./genome/a_thaliana.gff3
 ```
 
 ```bash
@@ -293,7 +343,7 @@ OUTPUT_COUNT_FILE="$OUTPUT_DIR/counts.txt"
 
 # Run featureCounts
 echo "Running featureCounts..."
-featureCounts -a $ANNOTATION_FILE -o $OUTPUT_COUNT_FILE -t gene -g gene_id -p -B -C -O "${BAM_FILES[@]}"
+featureCounts -a $ANNOTATION_FILE -o $OUTPUT_COUNT_FILE -t gene -g gene_id -C -O "${BAM_FILES[@]}"
 
 # Check if featureCounts ran successfully
 if [ $? -eq 0 ]; then
@@ -307,8 +357,6 @@ fi
 # -o: output file
 # -t: feature type to count (gene)
 # -g: attribute to group features (gene_id)
-# -p: reads are paired-end
-# -B: both reads of a pair map to the same feature
 # -C: counts only reads that are uniquely mapped
 # -O: counts reads overlapping multiple features only once - avoiding double-counting
 ```
