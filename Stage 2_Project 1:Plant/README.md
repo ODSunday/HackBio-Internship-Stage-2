@@ -374,7 +374,7 @@ cat counts/counts.txt | head -n 10      # First 10 lines.
 ```
 
 
-### 6. Differential expression analysis, functional enrichment, and pathway mapping: `R Studion`
+### 6. Differential expression analysis, functional enrichment, and pathway mapping: `R Studio`
 
 ```r
 ## DIFFERENTIAL EXPRESSION ANALYSIS
