@@ -373,7 +373,6 @@ cat counts/counts.txt | head -n 10      # First 10 lines.
 # Download the counts.txt file into local device for downstream analyses in R Studio.
 ```
 
-
 ### 6. Differential expression analysis, functional enrichment, and pathway mapping: `R Studio`
 
 ```r
@@ -403,7 +402,6 @@ library(ggrepel)
 library(clusterProfiler)
 library(org.At.tair.db)    
 library(enrichplot)                   
-
 
 # Setting count file
 count <- read.delim('counts.txt', header = T)
@@ -515,7 +513,6 @@ p <- p +
         plot.subtitle = element_text(hjust = 0.5))                          # Centres the subtitle
 ggsave("enhanced_volcano_plot.png", plot = p, width = 12, height = 8, dpi = 300)  # Saves the plot
 
-
 ## FUNCTIONAL ENRICHMENT AND PATHWAY MAPPING
 
 # Getting the top 5 upregulated and downregulated genes
@@ -599,7 +596,6 @@ dot_plot <- dotplot(up_enrich_MF, showCategory = 10) +
 print(dot_plot)                                              
 ggsave("dotplot_upregulated_MF.png", plot = dot_plot, width = 10, height = 6, dpi = 300) 
 
-
 # Visualizing enrichment results for downregulated genes
 dot_plot <- dotplot(down_enrich_BP, showCategory = 10) +     # Creates the dot plot
   ggtitle("Top 10 Enriched GO Terms (Downregulated Genes - BP)") +           
@@ -621,7 +617,6 @@ dot_plot <- dotplot(down_enrich_MF, showCategory = 10) +
         plot.margin = margin(10, 10, 10, 10))                
 print(dot_plot)                                              
 ggsave("dotplot_downregulated_MF.png", plot = dot_plot, width = 10, height = 6, dpi = 300) 
-
 
 # Getting the top 5 enriched pathways for upregulated genes
 top5_up_BP <- head(up_enrich_BP, n = 5)
@@ -697,11 +692,25 @@ down_kegg <- enrichKEGG(gene = downregulated,
                         pAdjustMethod = "BH",
                         qvalueCutoff = 0.05)
 
-# Viewing the results for upregulated genes
+# Visualizing the KEGG results (top 10) for upregulated genes
+dot_plot <- dotplot(up_kegg, showCategory = 10) + ggtitle("KEGG Enrichment for Upregulated Genes") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),   
+      plot.margin = margin(10, 10, 10, 10))                
+print(dot_plot)
+ggsave("upregulated_kegg_dotplot.png", plot = dot_plot, width = 10, height = 6, dpi = 300)
+
+# Visualizing the KEGG results (top 10) for downregulated genes
+dot_plot <- dotplot(down_kegg, showCategory = 10) + ggtitle("KEGG Enrichment for Downregulated Genes") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),   
+        plot.margin = margin(10, 10, 10, 10))                
+print(dot_plot)
+ggsave("downregulated_kegg_dotplot.png", plot = dot_plot, width = 10, height = 6, dpi = 300)
+
+# Printing the results for upregulated genes
 print("KEGG Enrichment Results for Upregulated Genes:")
 head(up_kegg)
 
-# Viewing the results for downregulated genes
+# Printing the results for downregulated genes
 print("KEGG Enrichment Results for Downregulated Genes:")
 head(down_kegg)
 
@@ -787,7 +796,7 @@ Table 2
 
 ###### Figures 5: Top 10 enriched GO terms for the downregulated genes. (A): Biological process (BP). (B): Cellular components (CC). (C): Molecular function (MF).
 
-###### Table 2
+###### Table 2: Top 5 GO enriched pathways for the upregulated and downregulated genes
 
 |Term|	Gene Count|	Category|
 |:--:|:----------:|:-------:|
@@ -823,9 +832,18 @@ Table 2
 |protein kinase regulator activity|	35|	Molecular Function|
 
 #### Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment analysis for the upregulated and downregulated genes
+Figures 6A and 6B
 Table 3
 
-###### Table 3:
+**A**
+<img width="1000" height="600" alt="upregulated_kegg_dotplot" src="https://github.com/user-attachments/assets/25f1f496-bae2-416d-8f1e-ecf341dad765" />
+
+**B**
+<img width="1000" height="600" alt="downregulated_kegg_dotplot" src="https://github.com/user-attachments/assets/6346225c-1248-4b02-be29-18778b3aba36" />
+
+###### Figure 6: Top 10 enriched KEGG pathways for the DEGs. (A) Upregulated DEGs. (B) Downregulated DEGs
+
+###### Table 3: Top 5 KEGG enriched pathways for the upregulated and downregulated genes
 |Pathway	|Gene Count	|Category|
 |:---------:|:---------:|:------:|
 |Plant-pathogen interaction	|93|	Upregulated|
