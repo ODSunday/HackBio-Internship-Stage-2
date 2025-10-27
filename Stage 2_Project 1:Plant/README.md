@@ -742,5 +742,103 @@ print(summary_kegg_results)
 write.csv(summary_kegg_results, "kegg_enrichment_summary_results.csv", row.names = FALSE)
 ```
 
+## RESULTS AND DISCUSSION
+### Principal component analysis (PCA)
+
+<img width="700" height="600" alt="PCA_plot1" src="https://github.com/user-attachments/assets/43cc4392-bccc-4ff1-8898-fc6eb1322c59" />
+
+###### Figure 1: Principal component analysis showing the clustering of UV-C treated samples compared to control
+
+### Heatmap
+
+<img width="655" height="768" alt="heatmap" src="https://github.com/user-attachments/assets/f9b0c32b-fadc-452e-b5d8-f610aa96730d" />
+
+###### Figure 2: Heatmap of top 20 DEGS
+
+### Upregulated and downregulated DEGs
+
+<img width="3600" height="2400" alt="enhanced_volcano_plot" src="https://github.com/user-attachments/assets/e5af33c0-53f5-4aa4-86c7-a1ecd3e21bca" />
+
+###### Figure 3: Volcano plot of the differential exprssion analysis showing upregulated and downregulated DEGs 
+
+### Functional enrichment and pathway analyses of the top 5 upregulated and downregulated genes
+#### Gene Ontology enrichment analysis for the upregulated genes
+Figures 4A-C
+
+#### Gene Ontology enrichment analysis for the downregulated genes
+Figures 5A-C
+
+#### Summary of the top 5 enriched pathways for the upregulated and downregulated genes
+Table 2
+
+**A** <img width="1000" height="600" alt="dotplot_upregulated_BP" src="https://github.com/user-attachments/assets/1742f88f-44cb-4183-9e96-4aa4f201710e" />
+
+**B** <img width="1000" height="600" alt="dotplot_upregulated_CC" src="https://github.com/user-attachments/assets/8e1ed0f2-639f-4f06-b1bb-0646309e6171" />
+
+**C** <img width="1000" height="600" alt="dotplot_upregulated_MF" src="https://github.com/user-attachments/assets/4dde5cf8-a730-4583-8993-6a6c3bdc68b6" />
+
+###### Figures 4: Top 10 enriched GO terms for the upregulated genes. (A): Biological process (BP). (B): Cellular components (CC). (C): Molecular function (MF).
+
+**A** <img width="1000" height="600" alt="dotplot_downregulated_BP" src="https://github.com/user-attachments/assets/227527d4-43bb-4fc8-8358-99b9fd0b7181" />
+
+**B** <img width="1000" height="600" alt="dotplot_downregulated_CC" src="https://github.com/user-attachments/assets/36e6c6ab-701e-4ef0-b801-3ae7028f9572" />
+
+**C** <img width="1000" height="600" alt="dotplot_downregulated_MF" src="https://github.com/user-attachments/assets/992d86e6-4938-46df-b31b-3b95ff6c95b1" />
+
+###### Figures 5: Top 10 enriched GO terms for the downregulated genes. (A): Biological process (BP). (B): Cellular components (CC). (C): Molecular function (MF).
+
+###### Table 2
+
+|Term|	Gene Count|	Category|
+|:--:|:----------:|:-------:|
+**Upregulated DEGs**				
+|cellular response to decreased oxygen levels|	153|	Biological Process|
+|cellular response to oxygen levels	|153	|Biological Process|
+|cellular response to hypoxia|	152|	Biological Process|
+|response to oxygen levels|	163	|Biological Process|
+|response to hypoxia|	161|	Biological Process|
+|preribosome|	38|	Cellular Component|
+|nucleolus	|130	|Cellular Component|
+|90S preribosome	|15	|Cellular Component|
+|preribosome, large subunit precursor|	12|	Cellular Component|
+|cytoplasmic stress granule|	49|	Cellular Component|
+|calmodulin binding	|74	|Molecular Function|
+|glutathione transferase activity	|27	|Molecular Function|
+|ADP binding	|57|	Molecular Function|
+|transmembrane signaling receptor activity|	37	|Molecular Function|
+|transmembrane receptor protein kinase activity|	28	|Molecular Function|
+**Downregulated DEGs**				
+|plastid organization	|115|	Biological Process|
+|chloroplast organization|	92|	Biological Process|
+|RNA modification	|114	|Biological Process|
+|mitotic cell cycle|	75	|Biological Process|
+|cell cycle phase transition|	39|	Biological Process|
+|chloroplast nucleoid|	31	|Cellular Component|
+|plastid nucleoid	|32|	Cellular Component|
+|chloroplast thylakoid|	127	|Cellular Component|
+|nucleoid	|33	|Cellular Component|
+|plastid thylakoid|	127|	Cellular Component|
+|cyclin-dependent protein serine/threonine kinase regulator activity|	25|	Molecular Function|
+|kinase regulator activity	|37|	Molecular Function|
+|protein kinase regulator activity|	35|	Molecular Function|
+
+#### Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment analysis for the upregulated and downregulated genes
+Table 3
+
+###### Table 3:
+|Pathway	|Gene Count	|Category|
+|:---------:|:---------:|:------:|
+|Plant-pathogen interaction	|93|	Upregulated|
+|MAPK signaling pathway - plant|	46	|Upregulated|
+|Phenylpropanoid biosynthesis|	42|	Upregulated|
+|Glutathione metabolism	|33	|Upregulated|
+|Ribosome biogenesis in eukaryotes|	32	|Upregulated|
+|Biosynthesis of cofactors	|60	|Downregulated|
+|Glyoxylate and dicarboxylate metabolism	|27	|Downregulated|
+|Glycine, serine and threonine metabolism	|24	|Downregulated|
+|Plant hormone signal transduction	|91	|Downregulated|
+|Folate biosynthesis|	14	|Downregulated|
+
+
 ## REFERENCES
 - Berkowitz, O., Xu, Y., Liew, L. C., Wang, Y., Zhu, Y., Hurgobin, B., Lewsey, M. G., and Whelan, J. (2021). RNA-seq analysis of laser microdissected _Arabidopsis thaliana_ leaf epidermis, mesophyll and vasculature defines tissue-specific transcriptional responses to multiple stress treatments. _The Plant Journal_. 104(3):938-955. DOI: 10.1111/tpj.15314.
