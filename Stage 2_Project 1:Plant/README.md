@@ -1,7 +1,7 @@
 # PROJECT 1: DIFFERENTIAL EXPRESSION ANALYSIS OF THE RESPONSE OF ARABIDOPSIS THALIANA VASCULATURE TISSUE TO UV TREATMENT
 ## INTRODUCTION
 Environmental stresses affect plant tissues in various degrees, and plants' response to stress often have tissue-specific components. Berkowitz et al. (2021) previously compare the transcriptomes analysis of three leaf tissues (epidermis, mesophyll, vasculature) of _Arabidopsis thaliana_ in response to stress. This current project aims at determining the genes that respond to UV stress in the vasculature by: 
-- performing differential expression analysis in the UV-treated vs water-treated vasculature (control);
+- performing differential expression analysis in the UV-treated versus water-treated vasculature (control);
 - performing functional enrichment analysis and pathway mapping to identify major biological processes associated with the differentially expressed genes (DEGs).
 
 ## METHODS
@@ -773,8 +773,6 @@ The plot shows a large number of significantly regulated genes (adjusted p < 0.0
 
 Notably, several genes exhibited more than 4-fold changes in expression, underscoring strong UV-induced responses. These genes likely participate in photoprotective and stress-response pathways, including DNA repair, oxidative stress mitigation, and secondary metabolism. The volcano plot thus provides a comprehensive overview of the extent and magnitude of transcriptional alterations driven by UV-C treatment, reinforcing the PCA and heatmap findings that demonstrated distinct expression patterns between the treated and control groups.
 
-Given the extensive transcriptional alterations observed in the UV-C treated vascular tissues, functional enrichment analysis and pathway mapping were subsequently performed to identify the major biological processes and molecular pathways affected by the treatment. The aim was to determine whether the significantly upregulated and downregulated genes are functionally associated with specific stress-response mechanisms to provide more insights into the molecular basis of UV-induced adaptations in _A. thaliana_ vascular tissues.
-
 <img width="655" height="768" alt="heatmap" src="https://github.com/user-attachments/assets/f9b0c32b-fadc-452e-b5d8-f610aa96730d" />
 
 ###### Figure 2: Heatmap of top 20 DEGS
@@ -784,7 +782,9 @@ Given the extensive transcriptional alterations observed in the UV-C treated vas
 ###### Figure 3: Volcano plot of the differential exprssion analysis showing upregulated and downregulated DEGs 
 
 ### Functional enrichment and pathway analyses of the top upregulated and downregulated genes
-Gene Ontology (GO) enrichment analysis was performed to gain functional insights into the biological roles of genes significantly affected by UV-C exposure in _A. thaliana_ vascular tissues. The top enriched GO terms were observed for both upregulated and downregulated genes across the three major GO categories: Biological Process (BP), Cellular Component (CC), and Molecular Function (MF) (**Table 3**; **Figures 4** and **5**).
+Given the extensive transcriptional alterations observed in the UV-C treated vascular tissues, functional enrichment analysis and pathway mapping were subsequently performed to identify the major biological processes and molecular pathways affected by the treatment. The aim was to determine whether the significantly upregulated and downregulated genes are functionally associated with specific stress-response mechanisms to provide more insights into the molecular basis of UV-induced adaptations in _A. thaliana_ vascular tissues.
+
+First, Gene Ontology (GO) enrichment analysis was performed to gain functional insights into the biological roles of genes significantly affected by UV-C exposure in _A. thaliana_ vascular tissues. The top enriched GO terms were observed for both upregulated and downregulated genes across the three major GO categories: Biological Process (BP), Cellular Component (CC), and Molecular Function (MF) (**Table 3**; **Figures 4** and **5**).
 
 **Top GO enriched terms and pathways for upregulated genes**
 
@@ -794,11 +794,11 @@ At the molecular level, upregulated genes showed strong enrichment for calmoduli
 
 **GO enriched terms and pathways for downregulated genes**
 
-Conversely, the downregulated genes were enriched in biological processes linked to plastid and chloroplast organization, RNA modification, and cell cycle regulation. These findings suggest that UV-C exposure suppresses photosynthetic and growth-related activities, likely as an energy-conservation strategy during stress. The corresponding Cellular Component terms—chloroplast thylakoid, plastid nucleoid, and chloroplast organization—further reinforce the downregulation of photosynthetic machinery.
+Conversely, the downregulated genes were enriched in biological processes linked to plastid and chloroplast organization, RNA modification, and cell cycle regulation. These findings suggest that UV-C exposure suppresses photosynthetic and growth-related activities, likely as an energy-conservation strategy during stress. The corresponding Cellular Component terms (chloroplast thylakoid, plastid nucleoid, and chloroplast organization) further reinforce the downregulation of photosynthetic machinery.
 
 In terms of molecular function, the enrichment of kinase regulator activity and cyclin-dependent protein serine/threonine kinase regulator activity points to reduced cell cycle progression and signaling activity. This suppression may reflect a cellular shift from growth-oriented to stress-protective metabolism following UV-C exposure.
 
-Summarily, the GO enrichment results reveal that UV-C treatment induces a dual response in vascular tissues: activation of stress-responsive, redox-regulatory, and signaling pathways, coupled with repression of photosynthetic and cell cycle processes. This coordinated transcriptional reprogramming underscores the plant’s adaptive strategy to mitigate UV-induced damage while maintaining essential metabolic balance.
+Summarily, the GO enrichment results reveal that UV-C treatment induces a dual response in vascular tissues: activation of stress-responsive, redox-regulatory, and signaling pathways, and repression of photosynthetic and cell cycle processes. This coordinated transcriptional reprogramming underscores the plant’s adaptive strategy to mitigate UV-induced damage while maintaining essential metabolic balance.
 
 **A** <img width="1000" height="600" alt="dotplot_upregulated_BP" src="https://github.com/user-attachments/assets/1742f88f-44cb-4183-9e96-4aa4f201710e" />
 
@@ -852,19 +852,19 @@ Summarily, the GO enrichment results reveal that UV-C treatment induces a dual r
 |protein kinase regulator activity|	35|	Molecular Function|
 
 #### Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment analysis for the upregulated and downregulated genes
-To further elucidate the biological pathways affected by UV-C exposure, KEGG pathway enrichment analysis was performed for the significantly upregulated and downregulated genes in the vascular tissues of _A. thaliana_ (**Table 4**; **Figure 6**).
+To further understand the biological pathways affected by UV-C exposure, KEGG pathway enrichment analysis was performed for the significantly upregulated and downregulated genes in the vascular tissues of _A. thaliana_ (**Table 4**; **Figure 6**).
 
 **Top KEGG enriched pathways for upregulated genes**
 
 The upregulated genes were significantly enriched in pathways associated with plant–pathogen interaction, MAPK signaling, and phenylpropanoid biosynthesis. Enrichment of the plant–pathogen interaction and MAPK signaling pathways suggests activation of defense-related signaling cascades that mediate stress perception and response. The phenylpropanoid biosynthesis pathway, known for producing antioxidant and UV-absorbing secondary metabolites (e.g., flavonoids and lignin precursors), indicates a protective response aimed at minimizing UV-induced oxidative damage.
 
-Additionally, enrichment in glutathione metabolism underscores the role of redox homeostasis and detoxification mechanisms in combating reactive oxygen species generated under UV-C stress. The ribosome biogenesis in eukaryotes pathway suggests enhanced protein synthesis capacity to support repair and defense processes. Together, these results imply that UV-C exposure activates multifaceted protective mechanisms involving stress signaling, antioxidant defense, and metabolic reprogramming.
+Additionally, enrichment in glutathione metabolism underscores the role of redox homeostasis and detoxification mechanisms in combating reactive oxygen species generated under UV-C stress. The ribosome biogenesis in eukaryotes pathway suggests enhanced protein synthesis capacity to support repair and defense processes. Together, these results imply that UV-C exposure activates important protective mechanisms involving stress signaling, antioxidant defense, and metabolic reprogramming.
 
 **Top KEGG enriched pathways for downregulated genes**
 
-The downregulated genes were primarily enriched in biosynthesis of cofactors, glyoxylate and dicarboxylate metabolism, and glycine, serine, and threonine metabolism, indicating suppression of core metabolic and biosynthetic activities. The reduced expression of genes in the plant hormone signal transduction pathway suggests altered hormonal balance and signaling, potentially contributing to growth inhibition and stress adaptation. Similarly, the downregulation of folate biosynthesis may reflect a reprioritization of metabolic resources away from growth and toward stress defense.
+The downregulated genes were primarily enriched in biosynthesis of cofactors, glyoxylate and dicarboxylate metabolism, and glycine, serine, and threonine metabolism, indicating suppression of core metabolic and biosynthetic activities. The reduced expression of genes in the plant hormone signal transduction pathway suggests altered hormonal balance and signaling, potentially contributing to growth inhibition and stress adaptation. Similarly, the downregulation of folate biosynthesis may reflect a redirection of metabolic resources away from growth and toward stress defense.
 
-The KEGG enrichment analysis complements the GO results, demonstrating that UV-C treatment reprograms vascular tissue metabolism by upregulating stress- and defense-related pathways while downregulating those involved in growth, photosynthesis, and biosynthesis. This coordinated shift underscores the plant’s adaptive strategy to withstand UV-induced oxidative and metabolic stress.
+The KEGG enrichment analysis complements the GO results, demonstrating that UV-C treatment reprogrammes vascular tissue metabolism by upregulating stress-related and defense-related pathways while downregulating pathways involved in growth, photosynthesis, and biosynthesis. This coordinated shift underscores the plant’s adaptive strategy to withstand UV-induced oxidative and metabolic stress.
 
 **A**
 <img width="1000" height="600" alt="upregulated_kegg_dotplot" src="https://github.com/user-attachments/assets/25f1f496-bae2-416d-8f1e-ecf341dad765" />
@@ -889,9 +889,7 @@ The KEGG enrichment analysis complements the GO results, demonstrating that UV-C
 |Folate biosynthesis|	14	|Downregulated|
 
 ## CONCLUSION
-Collectively, the PCA, heatmap, and volcano plot analyses revealed a clear transcriptional distinction between UV-C treated and control vascular tissues of Arabidopsis thaliana, confirming that UV exposure induces broad and coordinated changes in gene expression. GO enrichment analysis showed that UV-C treatment upregulated stress-related pathways such as hypoxia response, redox regulation, and signaling activity, while downregulating genes associated with chloroplast organization and cell cycle progression. Similarly, KEGG pathway analysis highlighted the activation of defense and detoxification mechanisms—particularly plant–pathogen interaction, MAPK signaling, phenylpropanoid biosynthesis, and glutathione metabolism—alongside suppression of metabolic and hormone signaling pathways.
-
-These results collectively demonstrate that vascular tissues respond to UV-C stress through an integrated network of defense signaling, antioxidant activity, and metabolic reprogramming aimed at maintaining cellular homeostasis and enhancing stress resilience.
+UV exposure induces broad and coordinated changes in gene expression in the vascular tissues of _A. thaliana_. The UV-C treatment upregulated stress-related pathways such as hypoxia response, redox regulation, and signaling activity, while downregulating genes associated with chloroplast organization and cell cycle progression. Similarly, UV exposure activates defense and detoxification mechanisms, particularly plant–pathogen interaction, MAPK signaling, phenylpropanoid biosynthesis, and glutathione metabolism, while suppressing metabolic and hormone signaling pathways. Hence, vascular tissues of _A. thaliana_ respond to UV-C stress through an integrated network of defense signaling, antioxidant activity, and metabolic reprogramming targeted at maintaining cellular homeostasis and enhancing stress resilience.
 
 ## REFERENCES
 - Berkowitz, O., Xu, Y., Liew, L. C., Wang, Y., Zhu, Y., Hurgobin, B., Lewsey, M. G., and Whelan, J. (2021). RNA-seq analysis of laser microdissected _Arabidopsis thaliana_ leaf epidermis, mesophyll and vasculature defines tissue-specific transcriptional responses to multiple stress treatments. _The Plant Journal_. 104(3):938-955. DOI: 10.1111/tpj.15314.
