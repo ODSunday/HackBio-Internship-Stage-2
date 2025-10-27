@@ -243,7 +243,6 @@ dot_plot <- dotplot(down_enrich_MF, showCategory = 10) +
 print(dot_plot)                                              
 ggsave("dotplot_downregulated_MF.png", plot = dot_plot, width = 10, height = 6, dpi = 300) 
 
-
 # Getting the top 5 enriched pathways for upregulated genes
 top5_up_BP <- head(up_enrich_BP, n = 5)
 top5_up_CC <- head(up_enrich_CC, n = 5)
@@ -318,11 +317,25 @@ down_kegg <- enrichKEGG(gene = downregulated,
                         pAdjustMethod = "BH",
                         qvalueCutoff = 0.05)
 
-# Viewing the results for upregulated genes
+# Visualizing the KEGG results (top 10) for upregulated genes
+dot_plot <- dotplot(up_kegg, showCategory = 10) + ggtitle("KEGG Enrichment for Upregulated Genes") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),   
+      plot.margin = margin(10, 10, 10, 10))                
+print(dot_plot)
+ggsave("upregulated_kegg_dotplot.png", plot = dot_plot, width = 10, height = 6, dpi = 300)
+
+# Visualizing the KEGG results (top 10) for downregulated genes
+dot_plot <- dotplot(down_kegg, showCategory = 10) + ggtitle("KEGG Enrichment for Downregulated Genes") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),   
+        plot.margin = margin(10, 10, 10, 10))                
+print(dot_plot)
+ggsave("downregulated_kegg_dotplot.png", plot = dot_plot, width = 10, height = 6, dpi = 300)
+
+# Printing the results for upregulated genes
 print("KEGG Enrichment Results for Upregulated Genes:")
 head(up_kegg)
 
-# Viewing the results for downregulated genes
+# Printing the results for downregulated genes
 print("KEGG Enrichment Results for Downregulated Genes:")
 head(down_kegg)
 
@@ -361,5 +374,6 @@ summary_kegg_results <- rbind(summary_up_kegg, summary_down_kegg)
 print(summary_kegg_results)
 
 write.csv(summary_kegg_results, "kegg_enrichment_summary_results.csv", row.names = FALSE)
+
 
 
